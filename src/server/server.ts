@@ -29,4 +29,6 @@ app.listen(8090, () => {
     console.log('Server is now running on port 8090 ...');
 });
 
+// npm run rest-api
+
 
