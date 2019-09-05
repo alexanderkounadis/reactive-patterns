@@ -1,3 +1,6 @@
+import { CoursesService } from './services/courses.service';
+import { NewsletterService } from './services/newsletter.service';
+import { MessagesService } from './services/messages.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -9,11 +12,15 @@ import {routerConfig} from "./router.config";
 import {SafeUrlPipe} from "./shared/pipes/safe-url.pipe";
 import {firebaseConfig} from "../environments/firebase.config";
 import {AngularFireDatabaseModule} from "@angular/fire/database";
+import { UserService } from './services/user.service';
+import { CoursesHttpService } from './services/courses-http.service';
+import { LessonsPagerService } from './services/lessons-pager.service';
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        SafeUrlPipe,
     ],
     imports: [
         BrowserModule,
@@ -25,6 +32,12 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
         AngularFireDatabaseModule
     ],
     providers: [
+        UserService,
+        MessagesService,
+        NewsletterService,
+        CoursesService,
+        CoursesHttpService,
+        LessonsPagerService
     ],
     bootstrap: [AppComponent]
 })

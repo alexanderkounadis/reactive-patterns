@@ -1,4 +1,3 @@
-
 export interface Course {
     id: string;
     url: string;
@@ -7,4 +6,3 @@ export interface Course {
     courseListIcon: string;
     longDescription: string;
 }
-
