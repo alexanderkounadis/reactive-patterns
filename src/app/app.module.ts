@@ -17,6 +17,12 @@ import { CoursesHttpService } from './services/courses-http.service';
 import { LessonsPagerService } from './services/lessons-pager.service';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { LoadingComponent } from './loading/loading.component';
+import { MessagesComponent } from './messages/messages.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { AllLessonsComponent } from './all-lessons/all-lessons.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { CreateLessonComponent } from './create-lesson/create-lesson.component';
 
 
 @NgModule({
@@ -25,6 +31,12 @@ import { LoadingComponent } from './loading/loading.component';
         SafeUrlPipe,
         TopMenuComponent,
         LoadingComponent,
+        MessagesComponent,
+        HomeComponent,
+        LoginComponent,
+        AllLessonsComponent,
+        CourseDetailComponent,
+        CreateLessonComponent,
     ],
     imports: [
         BrowserModule,
