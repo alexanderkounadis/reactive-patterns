@@ -1,7 +1,8 @@
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Lesson } from 'app/shared/model/lesson';
+import {Injectable} from '@angular/core';
+import {Observable, BehaviorSubject} from "rxjs";
+import {Lesson} from "../shared/model/lesson";
+import {Http} from "@angular/http";
+import 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
@@ -44,8 +45,7 @@ export class LessonsPagerService {
         pageNumber,
         pageSize: LessonsPagerService.PAGE_SIZE
       }
-    })
-      .map(res => res.json().payload)
+    }).map(res => res.json().payload)
       .do(lessons => this.subject.next(lessons))
       .publishLast().refCount();
   }
