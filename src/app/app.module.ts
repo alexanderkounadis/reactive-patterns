@@ -15,12 +15,16 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import { UserService } from './services/user.service';
 import { CoursesHttpService } from './services/courses-http.service';
 import { LessonsPagerService } from './services/lessons-pager.service';
+import { TopMenuComponent } from './top-menu/top-menu.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         SafeUrlPipe,
+        TopMenuComponent,
+        LoadingComponent,
     ],
     imports: [
         BrowserModule,
