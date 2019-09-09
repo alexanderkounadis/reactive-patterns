@@ -23,6 +23,10 @@ import { LoginComponent } from './login/login.component';
 import { AllLessonsComponent } from './all-lessons/all-lessons.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { CreateLessonComponent } from './create-lesson/create-lesson.component';
+import { CoursesListComponent } from './courses-list/courses-list.component';
+import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import { CourseComponent } from './course/course.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 
 
 @NgModule({
@@ -37,6 +41,10 @@ import { CreateLessonComponent } from './create-lesson/create-lesson.component';
         AllLessonsComponent,
         CourseDetailComponent,
         CreateLessonComponent,
+        CoursesListComponent,
+        LessonsListComponent,
+        CourseComponent,
+        LessonDetailComponent,
     ],
     imports: [
         BrowserModule,

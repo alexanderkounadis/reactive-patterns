@@ -16,7 +16,7 @@ export class CoursesHttpService {
       .map(res => res.json());
   }
 
-  findLessonDetailById(lessonId: number): Observable<Lesson> {
+  findLessonDetailById(lessonId: string): Observable<Lesson> {
     return this.http.get(`/api/lessons/${lessonId}`)
       .map(res => res.json());
   }
