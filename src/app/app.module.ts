@@ -27,6 +27,8 @@ import { CoursesListComponent } from './courses-list/courses-list.component';
 import { LessonsListComponent } from './lessons-list/lessons-list.component';
 import { CourseComponent } from './course/course.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
+import { CourseDetailHeaderComponent } from './course-detail-header/course-detail-header.component';
+import { NewsletterComponent } from './newsletter/newsletter.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
         LessonsListComponent,
         CourseComponent,
         LessonDetailComponent,
+        CourseDetailHeaderComponent,
+        NewsletterComponent,
     ],
     imports: [
         BrowserModule,

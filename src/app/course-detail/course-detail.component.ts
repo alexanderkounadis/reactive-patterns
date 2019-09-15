@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from 'app/shared/model/course';
 import { Lesson } from 'app/shared/model/lesson';
+import { CoursesService } from 'app/services/courses.service';
+import { NewsletterService } from 'app/services/newsletter.service';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'course-detail',
@@ -10,14 +13,33 @@ import { Lesson } from 'app/shared/model/lesson';
   styleUrls: ['./course-detail.component.css']
 })
 export class CourseDetailComponent implements OnInit {
-course$: Observable<Course>;
-lessons$: Observable<Lesson[]>;
+  course: Course;
+  lessons: Lesson[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, 
+              private coursesService: CoursesService,
+              private newsletterService: NewsletterService,
+              private userService: UserService) { 
+            
+              }
+    
+    onSubscribe(email: string){
+      this.newsletterService.subscribeToNewsletter(email)
+      .subscribe(()=> {
+        alert('Subscription successful...');
+      }, error => console.error);
+    }
 
   ngOnInit() {
-    this.course$ = this.route.data.map(data => data['detail'][0]);
-    this.lessons$ = this.route.data.map(data => data['detail'][1]);
+    this.route.params.subscribe(params => {
+      const courseUrl = params['id'];
+      this.coursesService.findCourseByUrl(courseUrl)
+      .subscribe(data => {
+        this.course = data;
+        this.coursesService.findLessonsForCourse(this.course.id)
+        .subscribe(lessons => this.lessons = lessons);
+      });
+    });
   }
 
 }
