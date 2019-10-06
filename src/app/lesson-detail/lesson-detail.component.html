@@ -1,3 +1,15 @@
-<p>
-  lesson-detail works!
-</p>
+<h3>{{lesson?.description}}</h3>
+<h5>Duration: {{lesson?.duration}}</h5>
+<iframe *ngIf="lesson?.videoUrl" 
+        [src]="lesson?.videoUrl | safeUrl" 
+        frameborder="0" 
+        allowfullscreen 
+        width="260" 
+        height="150">
+</iframe>
+
+<h5>Description</h5>
+<p>{{lesson?.longDescription}}</p>
+<div class="lessons-nav">
+  <button>Edit</button>
+</div>

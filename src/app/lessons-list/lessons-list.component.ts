@@ -16,4 +16,8 @@ export class LessonsListComponent implements OnInit {
   ngOnInit() {
   }
 
+  select(lesson: Lesson) {
+    this.selected.next(lesson);
+  }
+
 }
