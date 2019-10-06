@@ -1,8 +1,9 @@
 <div class="screen-container">
 
-  <course-detail-header [course]="course" [lessons]="lessons"
-        [firstName]="(userService.user$ | async).firstName" 
-        (subscribe)="onSubscribe($event)">
+<button class="button button-primary" style="margin-bottom: 15px;" (click)="loginAsJohn()">
+  Login as John
+</button>
+  <course-detail-header [course]="course$ | async" [lessons]="lessons$ | async">
     </course-detail-header>
-
+<lessons-list [lessons]="lessons$ | async"></lessons-list>
 </div>

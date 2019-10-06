@@ -64,8 +64,7 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
         MessagesService,
         NewsletterService,
         CoursesService,
-        CoursesHttpService,
-        LessonsPagerService
+        CoursesHttpService
     ],
     bootstrap: [AppComponent]
 })

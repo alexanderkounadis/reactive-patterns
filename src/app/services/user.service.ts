@@ -7,9 +7,7 @@ export const UNKNOWN_USER: User = {
   firstName: 'Unknown'
 };
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
 
 private subject = new BehaviorSubject(UNKNOWN_USER);

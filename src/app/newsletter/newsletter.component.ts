@@ -1,21 +1,29 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { NewsletterService } from 'app/services/newsletter.service';
+import { UserService } from 'app/services/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'newsletter',
   templateUrl: './newsletter.component.html',
-  styleUrls: ['./newsletter.component.css']
+  styleUrls: ['./newsletter.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NewsletterComponent {
+export class NewsletterComponent implements OnInit {
 
-  @Input()
-  firstName: string;
+  firstName$: Observable<string>;
+  constructor(private newsletterService: NewsletterService,
+    private userService: UserService) { }
 
-  @Output()
-  subscribe = new EventEmitter();
-  
-  subscribeToNewsletter(emailField){
-    this.subscribe.emit(emailField.value);
-    emailField.value = '';  
+  ngOnInit() {
+   this.firstName$ = this.userService.user$.map(user => user.firstName);
   }
 
+  subscribeToNewsletter(emailField) {
+    this.newsletterService.subscribeToNewsletter(emailField.value)
+      .subscribe(() => {
+        emailField.value = '';
+        alert('Subscription successful...');
+      }, error => console.error);
+  }
 }

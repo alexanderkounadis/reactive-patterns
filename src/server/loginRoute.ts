@@ -5,7 +5,6 @@ import {User} from "../app/shared/model/user";
 const auth = {
     'john@gmail.com': 'test123',
     'bill@gmail.com': 'test456'
-
 };
 
 const users: {[key:string]: User} = {
@@ -18,12 +17,9 @@ const users: {[key:string]: User} = {
 };
 
 export function loginRoute(req, res) {
-
-
     const payload = req.body;
 
     console.log('verifying password ...', payload);
-
 
     if (auth[payload.email] && auth[payload.email] === payload.password) {
         res.status(200).json(users[payload.email]);
