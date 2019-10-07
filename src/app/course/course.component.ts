@@ -10,7 +10,8 @@ import { MessagesService } from 'app/services/messages.service';
   selector: 'course',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css'],
-  providers: [LessonsPagerService]
+  // local instance of messages service - visible only in component scope - override global messages service
+  providers: [LessonsPagerService, MessagesService]
 })
 export class CourseComponent implements OnInit {
 
